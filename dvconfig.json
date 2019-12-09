@@ -1,0 +1,27 @@
+{
+  "name": "storypad",
+  "usedConcepts": {
+    "story": {
+      "name": "property",
+      "config": {
+        "schema": {
+          "title": "Story", "type": "object",
+          "properties": {
+            "content": { "type": "string" },
+            "author": { "type": "string" },
+            "parentId": { "type": "string" }
+          },
+          "required": ["content", "author", "parentId"]
+        }
+      }
+    },
+    "parentauth": { "name": "authentication" },
+    "childauth": { "name": "authentication" },
+    "group": {}
+  },
+  "routes": [
+    { "path": "/", "component": "landing" },
+    { "path": "/parent", "component": "parent-home" },
+    { "path": "/child", "component": "child-home" }
+  ]
+}

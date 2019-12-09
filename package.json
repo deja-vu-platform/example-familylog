@@ -1,0 +1,12 @@
+{
+  "name": "@deja-vu/example-storypad",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "dv serve",
+    "clean": "rm -rf .dv"
+  },
+  "dependencies": {
+    "@deja-vu/cli": "^0.0.9",
+    "@deja-vu/compiler": "^0.0.9"
+  }
+}

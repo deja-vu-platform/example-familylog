@@ -1,0 +1,18 @@
+<dv.component name="landing">
+  <nav><h1>StoryPad</h1></nav>
+  <h1>Parent Login</h1>
+  <dv.tx>
+    <parentauth.sign-in /><dv.link href="/parent" hidden=true />
+  </dv.tx>
+  <h1>New Parent Account</h1>
+  <dv.tx>
+    <dv.gen-id />
+    <group.create-group id=dv.gen-id.id hidden=true />
+    <parentauth.register-user id=dv.gen-id.id />
+    <dv.link href="/parent" hidden=true />
+  </dv.tx>
+  <h1>Child Login</h1>
+  <dv.tx>
+    <childauth.sign-in /><dv.link href="/child" hidden=true />
+  </dv.tx>
+</dv.component>
