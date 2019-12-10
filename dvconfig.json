@@ -1,11 +1,11 @@
 {
-  "name": "storypad",
+  "name": "familylog",
   "usedConcepts": {
-    "story": {
+    "entry": {
       "name": "property",
       "config": {
         "schema": {
-          "title": "Story", "type": "object",
+          "title": "Entry", "type": "object",
           "properties": {
             "content": { "type": "string" },
             "author": { "type": "string" },

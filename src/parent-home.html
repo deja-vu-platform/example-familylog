@@ -1,10 +1,10 @@
 <dv.component name="parent-home">
-  <nav><h1>StoryPad</h1></nav>
+  <nav><h1>Family Log</h1></nav>
   <parentauth.logged-in />
   <main class="side-by-side">
-    <div class="stories">
-      <h2>Stories</h2>
-      <story.show-objects showExclude=['parentId']
+    <div class="log">
+      <h2>Log</h2>
+      <entry.show-objects showExclude=['parentId']
         fieldMatching={
           parentId: parentauth.logged-in.user?.id, waitOn: ['parentId'] } />
     </div>

@@ -1,19 +1,19 @@
 <dv.component name="child-home">
-  <nav><h1>StoryPad</h1></nav>
+  <nav><h1>Family Log</h1></nav>
   <main>
     <childauth.logged-in />
     <group.show-groups hidden=true
       withMemberId=childauth.logged-in.user?.id waitOn=['withMemberId'] />
     <dv.if condition=group.show-groups.groupIds class="side-by-side">
-      <div class="stories">
-        <h2>Stories</h2>
-        <story.show-objects showExclude=['parentId']
+      <div class="log">
+        <h2>Log</h2>
+        <entry.show-objects showExclude=['parentId'] includeTimestamp=true
           fieldMatching={
             parentId: group.show-groups.groupIds[0], waitOn: ['parentId'] } />
       </div>
       <dv.tx>
-        <h2>Create Story</h2>
-        <story.create-object showExclude=['author', 'parentId']
+        <h2>Create Entry</h2>
+        <entry.create-object showExclude=['author', 'parentId']
           initialValue={
             author: childauth.logged-in.user?.username,
             parentId: group.show-groups.groupIds[0] } />
