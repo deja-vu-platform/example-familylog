@@ -1,21 +1,25 @@
 <dv.component name="child-home">
-  <childauth.logged-in />
-  <nav><h1>StoryPad</h1>- Hi {{childauth.logged-in.user?.username}}</nav>
-  <group.show-groups hidden=true
-    withMemberId=childauth.logged-in.user?.id waitOn=['withMemberId'] />
-  <dv.if condition=group.show-groups.groupIds>
-    <h2>Create Story</h2>
-    <dv.tx>
-      <story.create-object showExclude=['author', 'parentId']
-        initialValue={
-          author: childauth.logged-in.user?.username,
-          parentId: group.show-groups.groupIds[0] } />
-      <childauth.authenticate user=childauth.logged-in.user hidden=true />
-      <dv.link hidden=true />
-    </dv.tx>
-    <h2>Stories</h2>
-    <story.show-objects showExclude=['parentId']
-      fieldMatching={
-        parentId: group.show-groups.groupIds[0], waitOn: ['parentId'] } />
-  </dv.if>
+  <nav><h1>StoryPad</h1></nav>
+  <main>
+    <childauth.logged-in />
+    <group.show-groups hidden=true
+      withMemberId=childauth.logged-in.user?.id waitOn=['withMemberId'] />
+    <dv.if condition=group.show-groups.groupIds class="side-by-side">
+      <div class="stories">
+        <h2>Stories</h2>
+        <story.show-objects showExclude=['parentId']
+          fieldMatching={
+            parentId: group.show-groups.groupIds[0], waitOn: ['parentId'] } />
+      </div>
+      <dv.tx>
+        <h2>Create Story</h2>
+        <story.create-object showExclude=['author', 'parentId']
+          initialValue={
+            author: childauth.logged-in.user?.username,
+            parentId: group.show-groups.groupIds[0] } />
+        <childauth.authenticate user=childauth.logged-in.user hidden=true />
+        <dv.link />
+      </dv.tx>
+    </dv.if>
+  </main>
 </dv.component>

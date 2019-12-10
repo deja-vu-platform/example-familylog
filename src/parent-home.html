@@ -1,17 +1,21 @@
 <dv.component name="parent-home">
+  <nav><h1>StoryPad</h1></nav>
   <parentauth.logged-in />
-  <nav><h1>StoryPad</h1>-Hi {{parentauth.logged-in.user?.username}}</nav>
-  <h2>Add New Child</h2>
-  <dv.tx>
-    <dv.gen-id />
-    <parentauth.authenticate user=parentauth.logged-in.user hidden=true />
-    <childauth.register-user id=dv.gen-id.id
-      signIn=false buttonLabel="Create Child" />
-    <group.add-to-group id=parentauth.logged-in.user?.id
-      memberId=dv.gen-id.id hidden=true />
-  </dv.tx>
-  <h2>Stories</h2>
-  <story.show-objects showExclude=['parentId']
-    fieldMatching={
-      parentId: parentauth.logged-in.user?.id, waitOn: ['parentId'] } />
+  <main class="side-by-side">
+    <div class="stories">
+      <h2>Stories</h2>
+      <story.show-objects showExclude=['parentId']
+        fieldMatching={
+          parentId: parentauth.logged-in.user?.id, waitOn: ['parentId'] } />
+    </div>
+    <dv.tx>
+      <h2>New Child</h2>
+      <dv.gen-id />
+      <parentauth.authenticate user=parentauth.logged-in.user hidden=true />
+      <childauth.register-user id=dv.gen-id.id
+        signIn=false buttonLabel="Create Child" />
+      <group.add-to-group id=parentauth.logged-in.user?.id
+        memberId=dv.gen-id.id hidden=true />
+    </dv.tx>
+  </main>
 </dv.component>

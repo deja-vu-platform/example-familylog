@@ -1,0 +1,15 @@
+@import "~@deja-vu/themes/scss/basil-green.scss";
+
+.side-by-side {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+.stories {
+  width: 60%;
+}
