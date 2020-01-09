@@ -6,7 +6,7 @@
     "clean": "rm -rf .dv"
   },
   "dependencies": {
-    "@deja-vu/cli": "^0.0.12",
-    "@deja-vu/compiler": "^0.0.12"
+    "@deja-vu/cli": "^0.1.0",
+    "@deja-vu/compiler": "^0.1.0"
   }
 }
